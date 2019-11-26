@@ -2,27 +2,21 @@
 제 1장 7번 문제
 '''
 import unittest
-import datetime
+from datetime import datetime, timedelta
 
 
-def same_date(date):
-  reverse_num_2 = bin(date)[2:][::-1]
-  if(date == int('0b'+str(reverse_num_2), 2)):
-    return date
-  else:
-    return ''
-
-def answer(start_date, end_date):
+def answer(start, end):
   result = []
-  for i in range(start_date, end_date+1):
-    try:
-      date = datetime.datetime.strptime(str(i), '%Y%m%d').date()
-      if same_date(i) != '':
-        result.append(i)
-    except:
-      i+=1
-  return result
+  start_date = datetime.strptime(str(start), '%Y%m%d')
+  end_date = datetime.strptime(str(end), '%Y%m%d')
 
+  while start_date <= end_date :
+    start_date_integer = int(start_date.strftime('%Y%m%d'))
+    binary_date = bin(date)[2:]
+    if(binary_date == binary_date[::-1]):
+      result.append(start_date_integer)
+    start_date += timedelta(days=1)
+  return result
   
 class Test07(unittest.TestCase):
     '''

@@ -3,9 +3,7 @@
 '''
 import unittest
 
-# python unittest (https://docs.python.org/ko/3/library/unittest.html)
-
-def collatcz(n) :
+def collatz(n) :
   if n % 2 == 0 :
     return n/2
   else :
@@ -16,15 +14,15 @@ def answer(num):
   i=2
   cnt=0
 
-  while i <=num and i % 2 ==0:
+  while i <=num and i % 2 ==0: # num 이하의 짝수
     ans = i * 3 +1
 
     while True:
-      ans = collatcz(ans) 
+      ans = collatz(ans) 
       if  int(ans) == i:
         cnt += 1
         break
-      elif collatcz(ans) == 1:
+      elif collatz(ans) == 1:
         break
     
     i += 2
