@@ -12,7 +12,7 @@ def answer(start, end):
 
   while start_date <= end_date :
     start_date_integer = int(start_date.strftime('%Y%m%d'))
-    binary_date = bin(date)[2:]
+    binary_date = bin(start_date_integer)[2:]
     if(binary_date == binary_date[::-1]):
       result.append(start_date_integer)
     start_date += timedelta(days=1)
